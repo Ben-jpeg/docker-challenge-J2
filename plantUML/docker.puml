@@ -1,21 +1,21 @@
 @startuml docker
 
+
 participant NAVIGATEUR as nav
 
+
+box serverhttp #f0f
 entity      APACHE      as apache #blue
 entity      PHP         as php #blue
-
+end box
 
 box LARAVEL #LightSeaGreen
 participant router as ENTRYPOINT
+participant views as V
 participant controller as C
 participant model as M
-participant views as V
 end box
 
-
-entity      COMPOSER    as composer #green
-entity      NODEJS      as node #red
 
 database    POSTGRESQL  as pgsql #yellow
 
@@ -24,13 +24,19 @@ nav -> apache : To apache REQUEST
 apache -> php : To php REQUEST
 php -> pgsql  : To pgsql REQUEST
 
+
+ENTRYPOINT -> C : transmettre une request
+C -> M          : transmettre une request
+C <- M          : transmettre une response
+
+C -> V          : transmettre une des données
+V -> php        : compile le template une des données
+php -> apache   : envoie le html
+apache -> nav   :  Envoie la réponse finale
+
 php <- pgsql  : To php RESPONSE
+apache <- php : To apache RESPONSE
+nav <- apache : To nav RESPONSE
 
-
-Foo -> Foo3 : To control
-Foo -> Foo4 : To entity
-Foo -> Foo5 : To database
-Foo -> Foo6 : To collections
-Foo -> Foo7: To queue
 
 @enduml
