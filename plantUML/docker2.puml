@@ -1,0 +1,53 @@
+@startuml archi
+
+
+node client [
+<b>navigateur
+]
+
+node server [
+<b>nginx
+====
+PORT 80 & 443
+]
+
+node phpserver [
+<b>php-fpm
+====
+PORT 9000 OR unix socket
+====
+<b>run laravel artisan
+]
+
+database pgsql [
+<b>postgres
+====
+PORT 5432
+]
+
+node laravel [
+    <b> laravel
+]
+
+node npm [
+<b>run npm
+]
+
+node composer [
+<b>run composer 2
+]
+
+
+client <- server : res
+client -> server : req
+server -> laravel : req
+server <- laravel : res
+laravel -> phpserver : req
+laravel <- phpserver : res
+phpserver -> pgsql : req
+phpserver <- pgsql : res
+phpserver -- composer
+composer -- laravel : maintain
+laravel -- npm
+
+@enduml
