@@ -26,3 +26,10 @@ Ce flag prend 1 argument composé :
 Il faut spécifier le répertoire source de notre fichier et le répertoire cible
 
 `docker run --rm -v "$PWD/src":/var/www/html -p 8080:80 laurentoclock/apache:v0.1`
+
+## Résumé : comment construire une image avec docker
+
+1. On recherche un bonne image de base
+2. On crée et configure un Dockerfile
+3. On compile l'image avec `docker build`
+4. On exécute l'image pour crée un conteneur avec `docker run`
