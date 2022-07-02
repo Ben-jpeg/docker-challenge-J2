@@ -22,6 +22,7 @@
                **Et la les ennuis commencent : Avez vous refait la commande `ssh` ?**
         6. [x] La base de données est créée, l'utilisateur aussi, on peut travailler.
 
+
 ## Les bases de PostgreSQL
 
 1. [x] Se connecter à la BDD
