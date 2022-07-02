@@ -1,0 +1,16 @@
+networks:
+    laravel:
+        driver: bridge
+
+services:
+    apachephp:
+        build:
+            context: .
+            dockerfile: apachephp.dockerfile
+        ports:
+            - 8080:80
+        volumes:
+            - ./src:/var/www/html
+        networks:
+            - laravel
+            

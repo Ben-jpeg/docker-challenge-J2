@@ -1,8 +1,8 @@
 -- CRUD Create Read Update Delete
 
-INSERT INTO users(name, email) VALUES ('Laurent', 'laurent@oclock.io');
+INSERT INTO users(name, email) VALUES ('Ben', 'ben@gmail.com');
 
-UPDATE users SET name = 'Mickey', email = 'laurent.neveud@oclock.io' WHERE id = 1;
+UPDATE users SET name = 'bendjade', email = 'b.baroini@gmail.com' WHERE id = 1;
 
 SELECT * FROM users;
 
