@@ -12,7 +12,7 @@
 
 ### Pusher un image sur Dockerhub
 
-ocker tag laurentoclock/apache:v0.1 laurentoclock/apache-php:v0.1
+docker tag laurentoclock/apache:v0.1 laurentoclock/apache-php:v0.1
 docker push laurentoclock/apache-php:v0.1
 
 ## Bonus :
@@ -25,7 +25,7 @@ Il faut ajouter une option en ligne de commande pour pouvoir modifier ce fichier
 Ce flag prend 1 argument composé :
 Il faut spécifier le répertoire source de notre fichier et le répertoire cible
 
-`docker run --rm -v "$PWD/src":/var/www/html -p 8080:80 laurentoclock/apache:v0.1`
+`docker run --rm -v "$PWD/src":/var/www/html -p 8080:80 bendjade/apache:v0.1`
 
 ## Résumé : comment construire une image avec docker
 
